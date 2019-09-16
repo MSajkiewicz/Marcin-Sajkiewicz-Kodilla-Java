@@ -27,20 +27,20 @@ public class CollectionTestSuite {
 
     @Test
     public void testOddNumbersExterminatorNormalList() {
-        System.out.println("Test testOddNumbersExterminatorNormalList started!");
-        ArrayList<Integer> randomNumberList = new ArrayList<Integer>();
+        //Given
         String result = "";
-
+        Random randomGenerator = new Random();
+        ArrayList<Integer> randomNumberList = new ArrayList<Integer>();
         for (int i = 0; i < 100; i++) {
-            Random randomGenerator = new Random();
             int n = randomGenerator.nextInt(100);
             randomNumberList.add(n);
         }
-
+        System.out.println("Test testOddNumbersExterminatorNormalList started!");
+        //When
         OddNumbersExterminator exterminator = new OddNumbersExterminator();
         exterminator.exterminate(randomNumberList);
         ArrayList<Integer> createdEvenList = exterminator.getEvenList();
-
+        //Then
         for (Integer evenNumber : createdEvenList) {
             Assert.assertTrue(evenNumber % 2 == 0);
         }
@@ -48,13 +48,16 @@ public class CollectionTestSuite {
 
     @Test
     public void testOddNumbersExterminatorEmptyList() {
-        System.out.println("Test testOddNumbersExterminatorEmptyList started!");
+        //Given
         ArrayList<Integer> emptyList = new ArrayList<Integer>();
+        System.out.println("Test testOddNumbersExterminatorEmptyList started!");
 
+        //When
         OddNumbersExterminator exterminator = new OddNumbersExterminator();
         exterminator.exterminate(emptyList);
         ArrayList<Integer> createdEmptyList = exterminator.getEvenList();
 
+        //Then
         Assert.assertTrue(createdEmptyList.size()==(0));
     }
 
