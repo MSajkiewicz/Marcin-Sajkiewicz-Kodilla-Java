@@ -4,7 +4,7 @@ public interface Shape {
 
     String getShapeName();
 
-    double getHeight();
+    double getField();
 
 
 }

@@ -13,7 +13,7 @@ public class Square implements Shape {
     }
 
     @Override
-    public double getHeight() {
+    public double getField() {
         return height*height;
 
     }

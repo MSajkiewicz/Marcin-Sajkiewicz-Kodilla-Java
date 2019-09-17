@@ -13,7 +13,7 @@ public class Circle implements Shape {
     }
 
     @Override
-    public double getHeight() {
+    public double getField() {
         return 3.14*radius*radius;
 
     }
