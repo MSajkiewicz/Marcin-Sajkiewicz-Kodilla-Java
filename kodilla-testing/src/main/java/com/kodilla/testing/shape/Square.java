@@ -1,22 +1,20 @@
 package com.kodilla.testing.shape;
 
 public class Square implements Shape {
-    private String name;
-    private int field;
+     private int height;
 
-    public Square (String name, int field){
-        this.name=name;
-        this.field=field;
+    public Square (int height){
+        this.height = height;
     }
 
     @Override
     public String getShapeName() {
-        return name;
+        return "square";
     }
 
     @Override
-    public int getField() {
-        return field;
+    public double getHeight() {
+        return height*height;
 
     }
 }
