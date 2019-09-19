@@ -21,7 +21,7 @@ public class StatisticsCounterTestSuite {
         when(statistics.postsCount()).thenReturn(0);
         when(statistics.commentsCount()).thenReturn(400);
 
-        StatisticsCounter statisticsCounter = new StatisticsCounter(statistics);
+        StatisticsCounter statisticsCounter = new StatisticsCounter();
 
         //When
         statisticsCounter.calculateAdvStatistics(statistics);
@@ -45,7 +45,7 @@ public class StatisticsCounterTestSuite {
         when(statistics.postsCount()).thenReturn(1000);
         when(statistics.commentsCount()).thenReturn(2000);
 
-        StatisticsCounter statisticsCounter = new StatisticsCounter(statistics);
+        StatisticsCounter statisticsCounter = new StatisticsCounter();
 
         //When
         statisticsCounter.calculateAdvStatistics(statistics);
@@ -69,7 +69,7 @@ public class StatisticsCounterTestSuite {
         when(statistics.postsCount()).thenReturn(1000);
         when(statistics.commentsCount()).thenReturn(0);
 
-        StatisticsCounter statisticsCounter = new StatisticsCounter(statistics);
+        StatisticsCounter statisticsCounter = new StatisticsCounter();
 
         //When
         statisticsCounter.calculateAdvStatistics(statistics);
@@ -92,7 +92,7 @@ public class StatisticsCounterTestSuite {
         when(statistics.postsCount()).thenReturn(1000);
         when(statistics.commentsCount()).thenReturn(100);
 
-        StatisticsCounter statisticsCounter = new StatisticsCounter(statistics);
+        StatisticsCounter statisticsCounter = new StatisticsCounter();
 
         //When
         statisticsCounter.calculateAdvStatistics(statistics);
@@ -115,7 +115,7 @@ public class StatisticsCounterTestSuite {
         when(statistics.postsCount()).thenReturn(1000);
         when(statistics.commentsCount()).thenReturn(10000);
 
-        StatisticsCounter statisticsCounter = new StatisticsCounter(statistics);
+        StatisticsCounter statisticsCounter = new StatisticsCounter();
 
         //When
         statisticsCounter.calculateAdvStatistics(statistics);
@@ -137,7 +137,7 @@ public class StatisticsCounterTestSuite {
         when(statistics.postsCount()).thenReturn(1000);
         when(statistics.commentsCount()).thenReturn(10000);
 
-        StatisticsCounter statisticsCounter = new StatisticsCounter(statistics);
+        StatisticsCounter statisticsCounter = new StatisticsCounter();
 
         //When
         statisticsCounter.calculateAdvStatistics(statistics);
@@ -160,7 +160,7 @@ public class StatisticsCounterTestSuite {
         when(statistics.postsCount()).thenReturn(1000);
         when(statistics.commentsCount()).thenReturn(10000);
 
-        StatisticsCounter statisticsCounter = new StatisticsCounter(statistics);
+        StatisticsCounter statisticsCounter = new StatisticsCounter();
 
         //When
         statisticsCounter.calculateAdvStatistics(statistics);

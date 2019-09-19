@@ -12,10 +12,6 @@ public class StatisticsCounter {
     double commentsPerPostAverage=0.0;
 
 
-    public StatisticsCounter(Statistics statistics){
-        this.statistics = statistics;
-    }
-
     public double getPostsPerUserAverage() {
         return postsPerUserAverage;
     }
