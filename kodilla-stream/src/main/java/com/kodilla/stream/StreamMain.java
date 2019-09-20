@@ -1,7 +1,11 @@
 package com.kodilla.stream;
 
+import com.kodilla.stream.beautifier.PoemBeautifier;
+import com.kodilla.stream.beautifier.PoemDecorator;
 import com.kodilla.stream.lambda.ExpressionExecutor;
 import com.kodilla.stream.reference.FunctionalCalculator;
+
+import static com.sun.tools.javac.util.StringUtils.toUpperCase;
 
 public class StreamMain {
     public static void main(String[] args) {
@@ -18,5 +22,15 @@ public class StreamMain {
         expressionExecutor.executeExpression(3, 4, FunctionalCalculator::addAToB);
         expressionExecutor.executeExpression(3, 4, FunctionalCalculator::subBFromA);
         expressionExecutor.executeExpression(3, 4, FunctionalCalculator::divideAByB);
+
+        PoemBeautifier poemBeautifier = new PoemBeautifier();
+
+        poemBeautifier.beautify("Kodilla", (string) -> "ABC"+string+"ABC");
+        poemBeautifier.beautify("Kodilla", (string) -> toUpperCase(string));
+        poemBeautifier.beautify("Kodilla", (string) -> "oooOOO"+string+"OOOooo");
+        poemBeautifier.beautify("Kodilla", (string) -> "-(O.o)-"+string+"-(O.o)-");
+
+
     }
 }
+
