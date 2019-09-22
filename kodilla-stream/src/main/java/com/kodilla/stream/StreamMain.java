@@ -3,6 +3,7 @@ package com.kodilla.stream;
 import com.kodilla.stream.forumuser.Forum;
 import com.kodilla.stream.forumuser.ForumUser;
 
+import java.util.Calendar;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -12,7 +13,7 @@ public class StreamMain {
 
         Map<Integer, ForumUser> theMapOfUsers = forum.getUserList().stream()
                 .filter(forumUser -> forumUser.getSex() == 'M')
-                .filter(forumUser -> forumUser.getDateOfBirth().getYear() < 1999)
+                .filter(forumUser -> forumUser.getDateOfBirth().getYear() < Calendar.getInstance().get(Calendar.YEAR)-20)
                 .filter(forumUser -> forumUser.getCreatedPostsAmount() > 0)
                 .collect(Collectors.toMap(ForumUser::getUniqueID, forumUser -> forumUser));
 
