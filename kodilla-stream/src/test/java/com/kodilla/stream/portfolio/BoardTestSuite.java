@@ -159,7 +159,9 @@ public class BoardTestSuite {
                 .map(Period::getDays)
                 .reduce(0, Integer::sum);
 
+        double result = sumOfDays/taskQuantity;
+
         //Then
-        Assert.assertEquals(15, sumOfDays/taskQuantity);
+        Assert.assertEquals(15.0, result, 0);
     }
 }
