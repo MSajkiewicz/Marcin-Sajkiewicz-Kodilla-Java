@@ -3,6 +3,7 @@ package com.kodilla.stream.portfolio;
 import org.junit.Assert;
 import org.junit.Test;
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -132,6 +133,35 @@ public class BoardTestSuite {
         //Then
         Assert.assertEquals(2, longTasks);
     }
+    @Test
+    public void testAddTaskListAverageWorkingOnTask() {
+        //Given
+        Board project = prepareTestData();
 
+        //When
+        List<TaskList> inProgressTasks = new ArrayList<>();
+        inProgressTasks.add(new TaskList("In progress"));
 
+        long taskQuantity = project.getTaskLists().stream()
+                .filter(inProgressTasks::contains)
+                .flatMap(t -> t.getTasks().stream())
+                .map(Task::getCreated)
+                .map(t1 -> t1.until(LocalDate.now()))
+                .map(Period::getDays)
+                .filter(t2 -> t2 > 0)
+                .count();
+
+        final Integer sumOfDays = project.getTaskLists().stream()
+                .filter(inProgressTasks::contains)
+                .flatMap(t -> t.getTasks().stream())
+                .map(Task::getCreated)
+                .map(t1 -> t1.until(LocalDate.now()))
+                .map(Period::getDays)
+                .reduce(0, Integer::sum);
+
+        double result = sumOfDays/taskQuantity;
+
+        //Then
+        Assert.assertEquals(15.0, result, 0);
+    }
 }
