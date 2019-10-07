@@ -1,4 +1,8 @@
-package com.kodilla.good.patterns.challenges;
+package com.kodilla.good.patterns.challenges.order;
+
+import com.kodilla.good.patterns.challenges.information.InformationService;
+import com.kodilla.good.patterns.challenges.repository.OrderRepository;
+import com.kodilla.good.patterns.challenges.service.OrderService;
 
 public class OrderProcessor {
     private InformationService informationService;

@@ -1,4 +1,7 @@
-package com.kodilla.good.patterns.challenges;
+package com.kodilla.good.patterns.challenges.order;
+
+import com.kodilla.good.patterns.challenges.models.Item;
+import com.kodilla.good.patterns.challenges.models.User;
 
 public class OrderRequestRetriever {
 

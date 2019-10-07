@@ -1,7 +1,7 @@
-package com.kodilla.good.patterns.challenges;
+package com.kodilla.good.patterns.challenges.moviestore;
 
-        import java.util.List;
-        import java.util.Map;
+        import com.kodilla.good.patterns.challenges.moviestore.MovieStore;
+
         import java.util.stream.*;
 
 public final class MovieStoreGenerator {
