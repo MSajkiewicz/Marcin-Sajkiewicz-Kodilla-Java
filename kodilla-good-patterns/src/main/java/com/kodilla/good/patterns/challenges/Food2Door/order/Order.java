@@ -1,4 +1,6 @@
-package com.kodilla.good.patterns.challenges.Food2Door;
+package com.kodilla.good.patterns.challenges.Food2Door.order;
+
+import com.kodilla.good.patterns.challenges.Food2Door.suppliers.Supplier;
 
 public class Order {
     private Supplier supplier;
@@ -15,10 +17,18 @@ public class Order {
         return supplier;
     }
 
+    public String getItem() {
+        return item;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
     @Override
     public String toString() {
         return "Order{" +
-                "supplier=" + supplier +
+                "supplier=" + supplier.toString() +
                 ", item='" + item + '\'' +
                 ", quantity=" + quantity +
                 '}';
