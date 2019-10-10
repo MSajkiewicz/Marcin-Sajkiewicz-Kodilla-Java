@@ -1,41 +1,39 @@
 package com.kodilla.good.patterns.challenges.challenge5.flight;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class FlightSearchProcessor {
+    private static FlightRepository flightRepository;
 
-    public static void flightSearching(FlightSearch flightSearch){
-        if(flightSearch.getDepartureAirportSearch()!=null && flightSearch.getArrivalAirportSearch()!=null && flightSearch.getTransitAirportSearch()==null){
-            flightSearch.getFlightRepository().getFlightArrayList().stream()
-                    .filter(flight -> flight.getDepartureAirport().equals(flightSearch.getDepartureAirportSearch()))
-                    .filter(flight -> flight.getArrivalAirport().equals(flightSearch.getArrivalAirportSearch()))
-                    .forEach(System.out::println);
+    public FlightSearchProcessor(FlightRepository flightRepository) {
+        this.flightRepository = flightRepository;
+    }
 
-        } else if (flightSearch.getDepartureAirportSearch()==null && flightSearch.getArrivalAirportSearch()!=null && flightSearch.getTransitAirportSearch()==null) {
-            flightSearch.getFlightRepository().getFlightArrayList().stream()
-                    .filter(flight -> flight.getArrivalAirport().equals(flightSearch.getArrivalAirportSearch()))
-                    .forEach(System.out::println);
-
-
-        } else if (flightSearch.getDepartureAirportSearch()!=null && flightSearch.getArrivalAirportSearch()==null && flightSearch.getTransitAirportSearch()==null) {
-            flightSearch.getFlightRepository().getFlightArrayList().stream()
-                    .filter(flight -> flight.getDepartureAirport().equals(flightSearch.getDepartureAirportSearch()))
-                    .forEach(System.out::println);
-
-
-        } else if (flightSearch.getDepartureAirportSearch()!=null && flightSearch.getArrivalAirportSearch()!=null && flightSearch.getTransitAirportSearch()!=null) {
-            System.out.println("1-st flight: ");
-            flightSearch.getFlightRepository().getFlightArrayList().stream()
-                    .filter(flight -> flight.getDepartureAirport().equals(flightSearch.getDepartureAirportSearch()))
-                    .filter(flight -> flight.getArrivalAirport().equals(flightSearch.getTransitAirportSearch()))
-                    .forEach(System.out::println);
-            System.out.println("2-nd flight: ");
-            flightSearch.getFlightRepository().getFlightArrayList().stream()
-                    .filter(flight -> flight.getDepartureAirport().equals(flightSearch.getTransitAirportSearch()))
-                    .filter(flight -> flight.getArrivalAirport().equals(flightSearch.getArrivalAirportSearch()))
-                    .forEach(System.out::println);
-
-        } else {
-            System.out.println("Please enter missing condition.");
-        }
+    public static List<Flight> findByArrival(String arrival){
+        return flightRepository.getFlightArrayList().stream()
+                .filter(flight -> flight.getArrivalAirport().equals(arrival))
+                .collect(Collectors.toList());
+    }
+    public static List<Flight> findByDeparture(String departure){
+        return flightRepository.getFlightArrayList().stream()
+                .filter(flight -> flight.getDepartureAirport().equals(departure))
+                .collect(Collectors.toList());
+    }
+    public static List<Flight> findWithTransit(String departure, String arrival, String transit) {
+        List<Flight> firstFlight = flightRepository.getFlightArrayList().stream()
+                .filter(flight -> flight.getDepartureAirport().equals(departure))
+                .filter(flight -> flight.getArrivalAirport().equals(transit))
+                .collect(Collectors.toList());
+        List<Flight> secondFlight = flightRepository.getFlightArrayList().stream()
+                .filter(flight -> flight.getDepartureAirport().equals(transit))
+                .filter(flight -> flight.getArrivalAirport().equals(arrival))
+                .collect(Collectors.toList());
+        List<Flight> flightsWithTransitList = new ArrayList<>();
+        flightsWithTransitList.addAll(firstFlight);
+        flightsWithTransitList.addAll(secondFlight);
+        return flightsWithTransitList;
     }
 
 }

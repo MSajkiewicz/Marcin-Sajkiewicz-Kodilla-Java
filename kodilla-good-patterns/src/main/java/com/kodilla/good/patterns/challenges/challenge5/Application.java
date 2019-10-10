@@ -2,7 +2,6 @@ package com.kodilla.good.patterns.challenges.challenge5;
 
 import com.kodilla.good.patterns.challenges.challenge5.flight.Flight;
 import com.kodilla.good.patterns.challenges.challenge5.flight.FlightRepository;
-import com.kodilla.good.patterns.challenges.challenge5.flight.FlightSearch;
 import com.kodilla.good.patterns.challenges.challenge5.flight.FlightSearchProcessor;
 
 public class Application {
@@ -15,7 +14,11 @@ public class Application {
         flightRepository.addToFlightArrayList(new Flight ("Katowice", "Gdańsk"));
         flightRepository.addToFlightArrayList(new Flight ("Gdańsk", "Katowice"));
 
-        FlightSearchProcessor.flightSearching(new FlightSearch("Katowice", "Kraków", "Warszawa", flightRepository));
+        FlightSearchProcessor flightSearchProcessor = new FlightSearchProcessor(flightRepository);
+        System.out.println(FlightSearchProcessor.findByArrival("Katowice"));
+        System.out.println(FlightSearchProcessor.findByDeparture("Katowice"));
+        System.out.println(FlightSearchProcessor.findWithTransit("Katowice", "Kraków", "Warszawa"));
+
 
 
     }
