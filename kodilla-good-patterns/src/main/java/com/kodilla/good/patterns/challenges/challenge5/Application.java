@@ -15,9 +15,10 @@ public class Application {
         flightRepository.addToFlightArrayList(new Flight ("Gdańsk", "Katowice"));
 
         FlightSearchProcessor flightSearchProcessor = new FlightSearchProcessor(flightRepository);
-        System.out.println(FlightSearchProcessor.findByArrival("Katowice"));
-        System.out.println(FlightSearchProcessor.findByDeparture("Katowice"));
-        System.out.println(FlightSearchProcessor.findWithTransit("Katowice", "Kraków", "Warszawa"));
+
+        System.out.println(flightSearchProcessor.findByArrival("Katowice"));
+        System.out.println(flightSearchProcessor.findByDeparture("Katowice"));
+        System.out.println(flightSearchProcessor.findWithTransit("Katowice", "Kraków", "Warszawa"));
 
 
 

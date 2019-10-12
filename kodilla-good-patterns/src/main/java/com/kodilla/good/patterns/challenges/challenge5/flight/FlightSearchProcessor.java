@@ -5,34 +5,38 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class FlightSearchProcessor {
-    private static FlightRepository flightRepository;
+    private FlightRepository flightRepository;
 
     public FlightSearchProcessor(FlightRepository flightRepository) {
         this.flightRepository = flightRepository;
     }
 
-    public static List<Flight> findByArrival(String arrival){
+    public FlightRepository getFlightRepository() {
+        return flightRepository;
+    }
+
+    public List<Flight> findByArrival(String arrival){
         return flightRepository.getFlightArrayList().stream()
                 .filter(flight -> flight.getArrivalAirport().equals(arrival))
                 .collect(Collectors.toList());
     }
-    public static List<Flight> findByDeparture(String departure){
+    public List<Flight> findByDeparture(String departure){
         return flightRepository.getFlightArrayList().stream()
                 .filter(flight -> flight.getDepartureAirport().equals(departure))
                 .collect(Collectors.toList());
     }
-    public static List<Flight> findWithTransit(String departure, String arrival, String transit) {
-        List<Flight> firstFlight = flightRepository.getFlightArrayList().stream()
+    public List<Flight> findByDepartureAndTransit(String departure, String arrival){
+        List<Flight> flightList = flightRepository.getFlightArrayList().stream()
                 .filter(flight -> flight.getDepartureAirport().equals(departure))
-                .filter(flight -> flight.getArrivalAirport().equals(transit))
-                .collect(Collectors.toList());
-        List<Flight> secondFlight = flightRepository.getFlightArrayList().stream()
-                .filter(flight -> flight.getDepartureAirport().equals(transit))
                 .filter(flight -> flight.getArrivalAirport().equals(arrival))
                 .collect(Collectors.toList());
+        return flightList;
+    }
+
+    public List<Flight> findWithTransit(String departure, String arrival, String transit) {
         List<Flight> flightsWithTransitList = new ArrayList<>();
-        flightsWithTransitList.addAll(firstFlight);
-        flightsWithTransitList.addAll(secondFlight);
+        flightsWithTransitList.addAll(findByDepartureAndTransit(departure, transit));
+        flightsWithTransitList.addAll(findByDepartureAndTransit(transit, arrival));
         return flightsWithTransitList;
     }
 
