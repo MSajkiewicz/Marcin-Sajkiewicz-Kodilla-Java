@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 public class LibraryTestSuite {
     @Test
-    public void testGetBooks() {
+    public void testGetBooks() throws CloneNotSupportedException {
         //Given
         Book book1 = new Book("Title 1", "Author 1", LocalDate.of(2012, 01, 01));
         Book book2 = new Book("Title 2", "Author 2", LocalDate.of(2013, 01, 01));
@@ -18,23 +18,9 @@ public class LibraryTestSuite {
         library.getBooks().add(book2);
         library.getBooks().add(book3);
 
-        //making a shallow copy of object board
-        Library clonedLibrary = null;
-            try {
-                clonedLibrary=library.shallowCopy();
-                clonedLibrary.setName("Cloned library of books");
-            } catch (CloneNotSupportedException e) {
-                System.out.println(e);
-        }
+        Library clonedLibrary = library.shallowCopy();
+        Library deepClonedLibrary = library.deepCopy();
 
-        //making a deep copy of object board
-        Library deepClonedLibrary = null;
-            try {
-                deepClonedLibrary = library.deepCopy();
-                deepClonedLibrary.setName("Deep cloned library of books");
-            } catch (CloneNotSupportedException e) {
-                System.out.println(e);
-        }
         System.out.println(library);
         System.out.println(clonedLibrary);
         System.out.println(deepClonedLibrary);
