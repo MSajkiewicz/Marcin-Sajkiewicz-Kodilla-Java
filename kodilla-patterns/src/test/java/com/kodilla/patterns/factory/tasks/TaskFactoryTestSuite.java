@@ -11,7 +11,7 @@ public class TaskFactoryTestSuite {
 
 
     @Test
-    public void testFactoryShoppingTask() {
+    public void testFactoryShoppingTask() throws MakeTaskException {
         //Given
         TaskFactory factory = new TaskFactory();
         //When
@@ -22,7 +22,7 @@ public class TaskFactoryTestSuite {
         Assert.assertEquals(true, shoppingTask.isTaskExecuted());
     }
     @Test
-    public void testFactoryPaintingTask() {
+    public void testFactoryPaintingTask() throws MakeTaskException {
         //Given
         TaskFactory factory = new TaskFactory();
         //When
@@ -33,7 +33,7 @@ public class TaskFactoryTestSuite {
         Assert.assertEquals(true, paintingTask.isTaskExecuted());
     }
     @Test
-    public void testFactoryDrivingTask() {
+    public void testFactoryDrivingTask() throws MakeTaskException {
         //Given
         TaskFactory factory = new TaskFactory();
         //When
