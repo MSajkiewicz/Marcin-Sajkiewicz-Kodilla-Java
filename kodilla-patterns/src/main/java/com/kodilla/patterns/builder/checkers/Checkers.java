@@ -28,12 +28,12 @@ public class Checkers {
         private String playerOne = "";
         private String playerTwo = "";
 
-        public CheckersBuilder PlayerOne(String playerOne) {
+        public CheckersBuilder playerOne(String playerOne) {
             this.playerOne = playerOne;
             return this;
         }
 
-        public CheckersBuilder PlayerTwo(String playerTwo) {
+        public CheckersBuilder playerTwo(String playerTwo) {
             this.playerTwo = playerTwo;
             return this;
         }

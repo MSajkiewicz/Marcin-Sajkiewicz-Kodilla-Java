@@ -8,8 +8,8 @@ public class CheckersTestSuite {
     public void testCheckersBuilder() {
         //Given
         Checkers checkers = new Checkers.CheckersBuilder()
-                .PlayerOne("John")
-                .PlayerTwo("Theresa")
+                .playerOne("John")
+                .playerTwo("Theresa")
                 .Figure(FigureFactory.PAWN, Figure.WHITE, 0, 3)
                 .Figure(FigureFactory.PAWN, Figure.BLACK, 9, 7)
                 .Figure(FigureFactory.QUEEN, Figure.WHITE, 0, 2)
