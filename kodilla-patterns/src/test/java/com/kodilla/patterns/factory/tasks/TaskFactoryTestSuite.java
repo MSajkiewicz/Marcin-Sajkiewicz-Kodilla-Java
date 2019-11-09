@@ -19,7 +19,7 @@ public class TaskFactoryTestSuite {
         shoppingTask.executeTask();
         //Then
         Assert.assertEquals("ShoppingTask{Buy water/Water/2.0}", shoppingTask.toString());
-        Assert.assertEquals(true, shoppingTask.isTaskExecuted());
+        Assert.assertTrue(shoppingTask.isTaskExecuted());
     }
     @Test
     public void testFactoryPaintingTask() throws MakeTaskException {
@@ -30,7 +30,7 @@ public class TaskFactoryTestSuite {
         paintingTask.executeTask();
         //Then
         Assert.assertEquals("PaintingTask{Paint landscape/Blue/Landscape}", paintingTask.toString());
-        Assert.assertEquals(true, paintingTask.isTaskExecuted());
+        Assert.assertTrue(paintingTask.isTaskExecuted());
     }
     @Test
     public void testFactoryDrivingTask() throws MakeTaskException {
@@ -41,6 +41,6 @@ public class TaskFactoryTestSuite {
         drivingTask.executeTask();
         //Then
         Assert.assertEquals("DrivingTask{Drive home/Home/Car}", drivingTask.toString());
-        Assert.assertEquals(true, drivingTask.isTaskExecuted());
+        Assert.assertTrue(drivingTask.isTaskExecuted());
     }
 }

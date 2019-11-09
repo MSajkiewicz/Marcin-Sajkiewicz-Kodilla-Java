@@ -9,22 +9,17 @@ public class TaskFactory {
     public static final String DRIVINGTASK = "DRIVINGTASK";
 
     public final Task makeTask(final String taskClass) throws MakeTaskException {
-        try {
-            switch (taskClass) {
-                case SHOPPINGTASK:
-                    return new ShoppingTask("Buy water", "Water", 2.0);
-                case PAINTINGTASK:
-                    return new PaintingTask("Paint landscape", "Blue", "Landscape");
-                case DRIVINGTASK:
-                    return new DrivingTask("Drive home", "Home", "Car");
-            }
-        } catch (InputMismatchException e) {
-
-            throw new MakeTaskException();
-
+        switch (taskClass) {
+            case SHOPPINGTASK:
+                return new ShoppingTask("Buy water", "Water", 2.0);
+            case PAINTINGTASK:
+                return new PaintingTask("Paint landscape", "Blue", "Landscape");
+            case DRIVINGTASK:
+                return new DrivingTask("Drive home", "Home", "Car");
+            default:
+                throw new MakeTaskException();
         }
 
-        return null;
     }
 
 }
