@@ -19,6 +19,7 @@ public class TaskFactoryTestSuite {
         shoppingTask.executeTask();
         //Then
         Assert.assertEquals("ShoppingTask{Buy water/Water/2.0}", shoppingTask.toString());
+
         Assert.assertTrue(shoppingTask.isTaskExecuted());
     }
     @Test
