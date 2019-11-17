@@ -1,7 +1,11 @@
 package com.kodilla.hibernate.tasklist;
 
+import com.kodilla.hibernate.task.Task;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="TASKLISTS")
@@ -35,6 +39,7 @@ public class TaskList {
     public String getDescription() {
         return description;
     }
+
 
     private void setId(int id) {
         this.id = id;
