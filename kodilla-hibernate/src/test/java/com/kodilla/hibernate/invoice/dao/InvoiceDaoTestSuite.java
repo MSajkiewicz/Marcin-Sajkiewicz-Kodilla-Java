@@ -23,7 +23,6 @@ public class InvoiceDaoTestSuite {
         //Given
         Product water = new Product("Water");
         Product orangeJuice = new Product("Orange Juice");
-
         Item item1 = new Item(new BigDecimal(8), 8, new BigDecimal(8));
         Item item2 = new Item(new BigDecimal(5), 3, new BigDecimal(23));
         water.getItems().add(item1);
@@ -41,7 +40,14 @@ public class InvoiceDaoTestSuite {
         invoiceDao.save(invoice);
 
         //Then
-        Assert.assertNotEquals(null, invoice.getId());
+        Assert.assertEquals("00101012019", invoice.getNumber());
+        Assert.assertEquals(2, invoice.getItems().size());
+        Assert.assertTrue(invoice.getItems().contains(item1));
+        Assert.assertTrue(invoice.getItems().contains(item2));
+        Assert.assertEquals(water, item1.getProduct());
+        Assert.assertEquals(orangeJuice, item2.getProduct());
+
+
 
         //CleanUp
         invoiceDao.deleteById(invoice.getId());
