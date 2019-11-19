@@ -23,9 +23,9 @@ public class InvoiceDaoTestSuite {
         //Given
         Product water = new Product("Water");
         Product orangeJuice = new Product("Orange Juice");
+
         Item item1 = new Item(new BigDecimal(8), 8, new BigDecimal(8));
         Item item2 = new Item(new BigDecimal(5), 3, new BigDecimal(23));
-
         water.getItems().add(item1);
         orangeJuice.getItems().add(item2);
         item1.setProduct(water);
@@ -42,6 +42,9 @@ public class InvoiceDaoTestSuite {
 
         //Then
         Assert.assertNotEquals(null, invoice.getId());
+
+        //CleanUp
+        invoiceDao.deleteById(invoice.getId());
     }
 
 
