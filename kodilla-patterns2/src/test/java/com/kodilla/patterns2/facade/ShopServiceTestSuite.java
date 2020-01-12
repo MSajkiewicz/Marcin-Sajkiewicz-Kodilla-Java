@@ -1,11 +1,16 @@
 package com.kodilla.patterns2.facade;
 
+import com.kodilla.patterns2.facade.api.ItemDTO;
+import com.kodilla.patterns2.facade.api.OrderDTO;
+import com.kodilla.patterns2.facade.api.OrderFacade;
+import com.kodilla.patterns2.facade.api.OrderProcessingException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.swing.*;
 import java.math.BigDecimal;
 
 @RunWith(SpringRunner.class)
@@ -13,6 +18,8 @@ import java.math.BigDecimal;
 public class ShopServiceTestSuite {
     @Autowired
     private ShopService shopService;
+    @Autowired
+    private OrderFacade orderFacade;
 
     @Test
     public void testShopServiceSubmitOrder() {
@@ -57,4 +64,20 @@ public class ShopServiceTestSuite {
             System.out.println("Access denied. User is not authenticated.");
         }
     }
+
+    @Test
+    public void testShopFacade() {
+        OrderDTO order = new OrderDTO();
+        order.addItem(new ItemDTO(10L, 2));
+        order.addItem(new ItemDTO(126L, 1));
+        order.addItem(new ItemDTO(25L, 1));
+        order.addItem(new ItemDTO(11L, 3));
+        try {
+            orderFacade.processOrder(order, 1L);
+        } catch (OrderProcessingException e) {
+            //business exception
+        }
+    }
+
+
 }
