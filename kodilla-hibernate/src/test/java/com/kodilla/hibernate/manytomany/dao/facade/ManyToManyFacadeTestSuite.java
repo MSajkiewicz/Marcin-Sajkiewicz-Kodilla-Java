@@ -50,42 +50,31 @@ public class ManyToManyFacadeTestSuite {
     }
 
     @Test
-    public void facadeSearchCompaniesByThreeCharsOfNameTest() {
+    public void facadeSearchCompaniesByThreeCharsOfNameTest() throws ManyToManyFacadeException {
         //When
         List<Company> searchedCompaniesByThreeChars = new ArrayList<>();
-        try {
-            searchedCompaniesByThreeChars = manyToManyFacade.searchCompaniesByThreeCharsOfName("sof");
-        } catch (ManyToManyFacadeException e) {
-            e.printStackTrace();
-        }
+        searchedCompaniesByThreeChars = manyToManyFacade.searchCompaniesByThreeCharsOfName("sof");
+
 
         //Then
         Assert.assertEquals(searchedCompaniesByThreeChars.size(), 1);
         Assert.assertEquals(searchedCompaniesByThreeChars.get(0).getName(), "Software Machine");
     }
     @Test
-    public void facadeSearchCompaniesByPhrasePartTest() {
+    public void facadeSearchCompaniesByPhrasePartTest() throws ManyToManyFacadeException {
         //When
         List<Company> searchedCompaniesByPhrasePart = new ArrayList<>();
-        try {
-            searchedCompaniesByPhrasePart = manyToManyFacade.searchCompaniesByPhrasePart("chi");
-        } catch (ManyToManyFacadeException e) {
-            e.printStackTrace();
-        }
+        searchedCompaniesByPhrasePart = manyToManyFacade.searchCompaniesByPhrasePart("chi");
 
         //Then
         Assert.assertEquals(searchedCompaniesByPhrasePart.size(), 1);
         Assert.assertEquals(searchedCompaniesByPhrasePart.get(0).getName(), "Software Machine");
     }
     @Test
-    public void facadeSearchEmployeesByLastName() {
+    public void facadeSearchEmployeesByLastName() throws ManyToManyFacadeException {
         //When
         List<Employee> searchedEmployeesByLastName = new ArrayList<>();
-        try {
-            searchedEmployeesByLastName = manyToManyFacade.searchEmployeesByLastName("Kovalsky");
-        } catch (ManyToManyFacadeException e) {
-            e.printStackTrace();
-        }
+        searchedEmployeesByLastName = manyToManyFacade.searchEmployeesByLastName("Kovalsky");
 
         //Then
         Assert.assertEquals(searchedEmployeesByLastName.size(), 1);
@@ -93,14 +82,10 @@ public class ManyToManyFacadeTestSuite {
     }
 
     @Test
-    public void facadeSearchEmployeesByPhrasePart() {
+    public void facadeSearchEmployeesByPhrasePart() throws ManyToManyFacadeException {
         //When
         List<Employee> searchedEmployeesByPhrasePart = new ArrayList<>();
-        try {
-            searchedEmployeesByPhrasePart = manyToManyFacade.searchEmployeesByPhrasePart("lsk");
-        } catch (ManyToManyFacadeException e) {
-            e.printStackTrace();
-        }
+        searchedEmployeesByPhrasePart = manyToManyFacade.searchEmployeesByPhrasePart("lsk");
 
         //Then
         Assert.assertEquals(searchedEmployeesByPhrasePart.size(), 1);
