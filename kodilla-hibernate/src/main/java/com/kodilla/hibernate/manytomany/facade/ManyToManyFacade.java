@@ -20,6 +20,10 @@ public class ManyToManyFacade {
         companyDao.save(company);
     }
 
+    public void delete(Company company) {
+        companyDao.deleteById(company.getId());
+    }
+
     public List<Employee> searchEmployeesByLastName(String s) throws ManyToManyFacadeException {
         List<Employee> employees = employeeDao.retrieveEmployeesByLastName(s);
         if(employees.isEmpty()) {
