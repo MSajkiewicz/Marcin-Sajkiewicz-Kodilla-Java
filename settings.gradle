@@ -11,4 +11,5 @@ include 'kodilla-testing-gradle'
 include 'kodilla-jdbc'
 include 'kodilla-hibernate'
 include 'demo'
+include 'kodilla-testing2'
 
