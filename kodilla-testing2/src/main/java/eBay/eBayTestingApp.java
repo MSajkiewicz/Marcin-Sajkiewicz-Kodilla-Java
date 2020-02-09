@@ -1,21 +1,21 @@
-package google;
+package eBay;
 
 import config.WebDriverConfig;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class GoogleTestingApp {
-    public static final String SEARCHFIELD = "lst-ib";
-/*
+public class eBayTestingApp {
+    public static final String SEARCHFIELD = "gh-ac";
+
     public static void main(String[] args) {
-        WebDriver driver = WebDriverConfig.getDriver(WebDriverConfig.CHROME);
-        driver.get("https://www.google.com");
+        WebDriver driver = WebDriverConfig.getDriver(WebDriverConfig.FIREFOX);
+        driver.get("https://www.ebay.pl/");
 
         WebElement searchField = driver.findElement(By.id(SEARCHFIELD));
-        searchField.sendKeys("Kodilla");
+        searchField.sendKeys("Laptop");
         searchField.submit();
     }
-
- */
 }
+
+
