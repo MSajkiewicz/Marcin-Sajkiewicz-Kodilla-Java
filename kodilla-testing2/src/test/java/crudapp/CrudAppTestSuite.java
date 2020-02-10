@@ -111,7 +111,6 @@ public class CrudAppTestSuite {
                 .filter(theForm -> theForm.findElement(By.xpath(".//button[contains(@class, \"datatable__button\")]")).getText().equals("Delete"))
                 .forEach(theForm -> theForm.findElement(By.xpath("//div[@class=\"datatable__row-section-wrapper\"]/fieldset[1]/button[4]")).click());
 
-        Thread.sleep(5000);
     }
 
     @Test
